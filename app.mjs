@@ -17,12 +17,16 @@ import {
 } from "./appsupport.mjs";
 
 import { router as indexRouter } from "./routes/index.mjs";
-// import { router as notesRouter } from "./routes/notes.mjs";
+import { router as notesRouter } from "./routes/notes.mjs";
 
-export const app = experss();
+// create instance of notes
+import { InMemoryNotesStore } from "./models/notes-memory.mjs";
+export const NotesStore = new InMemoryNotesStore();
+
+export const app = express();
 
 // view engine setup
-app.set("view", path.join(__dirname, "views"));
+app.set("views", path.join(__dirname, "views"));
 app.set("view engine", "hbs");
 hbs.registerPartials(path.join(__dirname, "partials"));
 
@@ -35,7 +39,7 @@ app.use(express.static(path.join(__dirname, "public")));
 
 // router function lists
 app.use("/", indexRouter);
-// app.use("/notes", notesRouter);
+app.use("/notes", notesRouter);
 
 // error handlers
 // catch 404 and forward to error handler
