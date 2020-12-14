@@ -59,3 +59,4 @@
 ::1 - - [06/Dec/2020:08:27:03 +0000] "GET /assets/vendor/jquery/jquery.min.js HTTP/1.1" 304 -
 ::1 - - [06/Dec/2020:08:27:03 +0000] "GET /assets/vendor/popper.js/popper.min.js HTTP/1.1" 304 -
 ::1 - - [06/Dec/2020:08:27:03 +0000] "GET /assets/vendor/bootstrap/js/bootstrap.min.js HTTP/1.1" 304 -
+::1 - - [06/Dec/2020:08:27:03 +0000] "GET /assets/vendor/feather-icons/feather.js HTTP/1.1" 304 -

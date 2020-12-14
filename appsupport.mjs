@@ -24,6 +24,15 @@ export function normalizePort(val) {
  */
 import { dbgerror } from "./app.mjs";
 export function onError(error) {
+  switch (error.code) {
+    case "ENOTESSTORE":
+      console.log(
+        `Notes data store initialization failure because `,
+        error.error
+      );
+      process.exit(1);
+      break;
+  }
   dbgerror(error);
   if (error.syscall !== "listen") {
     throw error;

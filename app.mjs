@@ -20,8 +20,14 @@ import {
   handle404,
   basicErrorHandler,
 } from "./appsupport.mjs";
-import { InMemoryNotesStore } from "./models/notes-memory.mjs";
-export const NotesStore = new InMemoryNotesStore();
+// import { InMemoryNotesStore } from "./models/notes-memory.mjs";
+// export const NotesStore = new InMemoryNotesStore();
+import { useModel as useNotesModel } from "./models/notes-store.mjs";
+useNotesModel(process.env.NOTES_MODEL ? process.env.NOTES_MODEL : "memory")
+  .then((store) => {})
+  .catch((error) => {
+    onError({ code: "ENOTESSTORE", error });
+  });
 
 import { router as indexRouter } from "./routes/index.mjs";
 import { router as notesRouter } from "./routes/notes.mjs";
